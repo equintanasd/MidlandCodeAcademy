@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Review</title>
+    <meta name='viewport' content="width=device-width, initial-scale=1">
+    <style>
+
+      body {
+        margin: 0;
+      }
+
+      section {
+        width: 100%;
+        height: 400px;
+        background-color: goldenrod;
+        margin-bottom: 25px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      img {
+        width: 75px;
+        height: 75px;
+      }
+
+      @media (min-width: 600px) {
+        section {
+          float: left;
+          width: calc(50% - 10px);
+          margin: 0 5px;
+          height: 200px;
+        }
+
+        /* Clearfix nonsense */
+        main::after {
+          content: '';
+          clear: both;
+          display: table;
+        }
+
+        h1 {
+          text-align: center;
+          background-color: #f1f1f1;
+          margin-top: 15px;
+        }
+      }
+
+    </style>
+  </head>
+  <body>
+
+    <main>
+      <section>
+        <img src='http://fillmurray.com/75/75'>
+      </section>
+      <section>
+        <img src='http://fillmurray.com/75/75'>
+      </section>
+    </main>
+
+    <footer>
+      <h1>Footer of the website</h1>
+    </footer>
+
+  </body>
+</html>
