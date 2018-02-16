@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Intro to JS</title>
+    <link href='style.css' type='text/css' rel='stylesheet'>
+    <style>
+      h1 {
+        color: blue;
+      }
+    </style>
+
+    <!-- external javascript -->
+    <script src="javascript.js"></script>
+
+    <!-- internal javascript -->
+    <script>
+      /*
+      console.log("brock");
+      console.error("mazda");
+      console.warn("toy story");
+      console.info("santa fe");
+
+      alert("basketball");
+      */
+
+      // examples of strings
+      var my_name = "brock";
+      var my_address = "2320 Deerfield Ave";
+
+      //examples of numbers
+      var my_age = 29;
+      var my_age_string = "29"; // <~~~ different than the number
+
+      var apples = 5;
+
+      var sick = false;
+      var sick_string = "false"; // <~~ different than boolean false
+
+      // no need to redeclare or create the sick variable
+      // just call it by its name and give it a new value
+      sick = false;
+
+      var favorite_movies = ["matrix", "lord of the rings", "princess bride"];
+      var lotto_numbers = [56, 13, 45, 12];
+
+      var tonights_movie = favorite_movies[2];
+      alert(tonights_movie);
+
+      var random_stuff = ["yoyoyo", 12, false];
+      console.log( random_stuff[2] );
+
+      var inception = [ ["brock", "sara"], ["ansleigh", "carson"] ];
+      console.log( inception[1][1] );
+
+
+      var movie = {
+        budget: 2000000,
+        title: "Gone With The Wind",
+        color: false,
+        talent: ["Vivian Leigh", "Clark Gabel"],
+        director: {
+          name: "Selznick",
+          previous_movies: ["TMNT", "War of the Worlds", "Bridgett Jone's Diary"]
+        }
+      }
+    </script>
+
+  </head>
+  <body>
+
+    <h1 style='color: red;'>Hello, world</h1>
+  </body>
+</html>
