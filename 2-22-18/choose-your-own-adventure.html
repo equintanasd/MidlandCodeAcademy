@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Choose Your Own Adventure</title>
+    <script>
+
+      console.log("You reach a river in dense, lush forest.");
+
+      /* DECISION ONE */
+      var decision1 = prompt("Do you [swim] or do you [swing] across?");
+
+      if(decision1 != 'swim' && decision1 != 'swing'){
+        console.error("You used your past knowledge of ancient rivers to get across.");
+      }
+
+      if(decision1 == 'swim'){
+        console.log("You risked getting eaten by man-eating fish. But you made it.");
+      }
+
+      if(decision1 == 'swing'){
+        console.log('You grabbed a vine and got a running start. Barely made it.');
+      }
+
+      /* DECISION TWO */
+      console.log("You run into a shiny obelisk in the path.");
+
+      var decision2 = prompt('Do you [touch] the stone or [walk] around?');
+
+      if(decision2 != 'touch' && decision2 != 'walk'){
+        console.log('You were taught not to touch things that weren\'t yours.')
+      }
+
+      if(decision2 == 'walk'){
+
+        if(decision1 == 'swim'){
+          // they swam and are walking
+          console.log("You're too tired to be bothered by rocks. You trudge onto the next obstacle.");
+        }
+
+        if(decision1 == 'swing'){
+          // they swung and are walking
+          console.log("Speed is critical. You leave the rock behind and move on.");
+        }
+
+      }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+  </head>
+  <body>
+    <h1>Choose Your Own Adventure</h1>
+  </body>
+</html>

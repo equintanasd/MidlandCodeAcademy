@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Reviewing JS and If/else & functions</title>
+  </head>
+  <script>
+
+    var my_name = prompt('What is your name?');
+    var my_age = 80;
+    var is_fast = true;
+    var my_friends = ['Jeremiah', 'Nick', 'Abel'];
+    my_friends[2] = 'Liam';
+
+    var person = {
+      name: my_name,
+      age: my_age,
+      fast: is_fast,
+      friends: my_friends
+    }
+
+    /*
+      If they are 'Sam Rockwell', treat them special
+      If they are not, treat them normal
+    */
+    // if(person.name == 'Sam Rockwell'){
+    //   console.info('Right this way, sir.');
+    // } else {
+    //   console.error('Go away, buddy.');
+    // }
+
+    // less than or equal to
+    // if(person.age <= 13){
+    //   alert("YOU'RE TOO YOUNG!");
+    // }
+
+    // if(person.age > 13 || person.name == 'Justin Bieber'){
+    //   console.log(`Welcome to the youngin's club ${person.name}`);
+    // }
+
+    // BAD EXAMPLES
+    // prompt() returns back a string
+    // you can't compare a string to a number/boolean
+    // if(person.fast == true && person.age > 70){
+    //   console.log("That's very impressive.");
+    // }
+
+    /* Defining function */
+    function passFootball(quarterback, widereceiver){
+      return `${quarterback} passed the ball down the field to ${widereceiver}!`;
+    }
+
+    /* Calling the function */
+    var playByPlay = passFootball('Joe Montana', 'Jerry Rice');
+    logMessage(playByPlay);
+
+    function logMessage(text){
+      console.info(text);
+    }
+
+    /*
+      1. create function, set up 2 parameters: x, y
+      2. in function, return x * y
+      3. create variable outside of function,
+          set equal to function with 2 numbers as arguments
+      4. use `logMessage()` function to display the product
+          in the console
+    */
+    function multiply(number1, number2){ //num1 & num2 are parameters
+      return number1 * number2;
+    }
+
+    var number1 = 4;
+    var number2 = 7;
+    var product = multiply(number1, number2); //500 & 126 are arguments
+    logMessage(product);
+
+
+
+  </script>
+  <body>
+
+  </body>
+</html>
