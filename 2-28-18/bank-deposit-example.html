@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Banking Simulation</title>
+
+    <script>
+      /*
+        1) create a 'user' object with 4 properties:
+          - username: string
+          - password: string
+          - current_bill: number
+          - payment_history: array
+        2) write a method on the 'user' object called 'messageToUser' that has one parameter: 'text'
+          - should simply use the alert() method to display the text
+        3) write a method on the 'user' object called 'payBill'
+          A) First, this method should check to see if the current_bill is greater than 0
+            - If it is less than or equal to zero, display "No bill" message to the user and return
+          A) this function should tell the user what their current bill is and
+            ask the user how much they would like to pay and store that number
+            in a variable
+          B) If no data was returned ( if(!amount) ) send message to the user and return
+          C) make sure you're dealing with a number
+            - prompt will return a string. Use parseInt() to turn a string into a number
+          D) before accepting the payment, check to see if the payment amount is
+            larger than the current bill amount
+              - if its a greater amount, display error message to the user, call `this.payBill()` and then return
+          E) subtract the payment amount from the current_bill and store the result
+            on the object in the 'current_bill' key
+          F) add the payment amount to the payment_history array
+          G) thank them, display the payment amount back to the user, ask the user if they'd like to make another payment
+            - if they do, call payBill() again
+            - otherwise, thank them for their payment
+        4) write a method on the user object called 'login'
+          A) ask the user for their username and password, storing both of them in variables
+          B) if they both are a match, call the 'payBill' method on the user object
+          C) otherwise, tell them it was incorrect
+            - and THEN call the login method again (giving them another chance)
+        5) Outside of the object and any functions/methods, etc... call user.login() to begin the process
+
+        // NEW STUFF
+        - confirm()
+          - https://www.w3schools.com/jsref/met_win_confirm.asp
+        - 'this' keyword
+          - "When a function is called as a method of an object, its this is set to the object the method is called on."
+          - https://www.youtube.com/watch?v=yVdU2coJ1VQ
+        - .push()
+          - https://www.w3schools.com/js/js_array_methods.asp
+        - parseInt()
+          - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt
+
+
+        EXTENDED PRACTICE
+        ##########
+        1) Create a new method on the user object called 'naviagte'
+        2) prompt the user for their selection
+          - Do you want to make a [payment] or [view] history or [exit]
+          - If the selection isn't one of those items, display error message and call this.navigate() again
+          - If the selection is 'payment', call this.payBill()
+          - If the selection is 'view', alert out the string version of the payment_history array
+            - Will use the toString() array method
+          - If the selection is 'exit', tell them goodbye
+        3) In the payBill() method, after they've chosen NOT to meke another payment, send them
+          back to this.navigate() to let them chose an option
+      */
+
+      var user = {
+        username: 'brock',
+        password: 'password123',
+        current_bill: 123,
+        payment_history: [],
+        messageToUser: function(text){
+          alert(text);
+        },
+        login: function(){
+          var givenUsername = prompt('Username:');
+          var givenPassword = prompt('Password:');
+
+          if(givenPassword == this.password && givenUsername == this.username){
+            this.navigate();
+          }else{
+            this.messageToUser('In correct username or passsword');
+            this.login();
+          }
+        },
+        navigate: function(){
+          let decision = prompt('Do you want to make a [payment] or [view] history or [exit]?');
+
+          if(decision != 'payment' && decision != 'view' && decision != 'exit'){
+            this.messageToUser('Invalid selection.');
+            this.navigate();
+          }
+
+          if(decision == 'payment'){
+            this.payBill();
+          }
+
+          if(decision == 'view') {
+            this.viewHistory();
+          }
+
+          if(decision == 'exit'){
+            this.messageToUser('Goodbye!');
+          }
+        },
+        viewHistory: function(){
+          alert( this.payment_history.toString() );
+          this.navigate();
+        },
+        payBill: function(){
+          if(this.current_bill <= 0){
+            this.messageToUser('You have no bills to pay');
+            return;
+          }
+
+          var amount = prompt(`Your current bill is ${this.current_bill}. How much would you like to pay?`);
+
+          if(amount == false){
+            this.messageToUser('No amount given');
+            return;
+          }
+
+          amount = parseInt(amount, 10);
+
+          if(amount > this.current_bill){
+            this.messageToUser('Too high of a payment');
+            this.payBill();
+            return;
+          }
+
+          this.current_bill = this.current_bill - amount;
+          this.payment_history.push(amount);
+
+          var again = confirm(`Thank you for your payment of ${amount}. Would you like to make another payment?`);
+          if(again){
+            this.payBill();
+          }else{
+            this.messageToUser('Thanks for your payment!');
+            this.navigate();
+          }
+        }
+      }
+
+      user.login();
+
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>
