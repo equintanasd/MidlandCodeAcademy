@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Reviewing Intro to JS</title>
+    <script>
+      var whateryouwant = 'canbeastringnumerbooleanoranarray';
+      var niceDay = true;
+      var temp = 59;
+
+      var niceDays = ['Tuesday', 'Wednesday', 'Thursday'];
+      console.log(niceDays[2]); //Thursday
+      alert(niceDays[2]); //pop open an alert with 'Thursday'
+
+      niceDays[0] = 'Monday';
+
+      var day = {
+        date: '2018-02-27',
+        hour: 24,
+        hasClass: true,
+        dayOfTheWeek: 'Tuesday',
+        holidays: ['Pancake Day', 'Chug A Jug Of Milk Day', 'Hug a Clown Day']
+      };
+
+      console.log(day.hasClass);
+      console.log(day.holidays[1]);
+
+      if(day.hasClass != true) {
+        alert("YAYAYAYAYAYAYAYAYY!");
+      } else {
+        // Using template literal
+        // alert(`We don't have class today, ${day.date}!`);
+
+        // Using string concantenation
+        alert("We don't have class today, " + day.date + "!");
+      }
+
+      if(day.dayOfTheWeek == 'Saturday' && day.hasClass == true){
+        alert('Welcome to the Second Saturday workshop!');
+      }
+
+      function doWeHaveClass(dayWeAreChecking){
+        console.log(dayWeAreChecking);
+
+        // if/else
+        if(day.dayOfTheWeek == dayWeAreChecking && day.hasClass == true){
+          // YES
+          return true;
+        } else {
+          // NO
+          return false;
+        }
+
+      }
+
+      var canWeLearn = doWeHaveClass('Friday');
+
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

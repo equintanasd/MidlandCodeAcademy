@@ -33,6 +33,40 @@
 
       */
 
+      function messageToUser(text){
+        alert(text);
+      }
+
+      function changePassword(){
+        var newPassword = prompt('What is your new password?');
+
+        if(newPassword == 'password'){
+          messageToUser('Your password cannot be password.');
+          return false;
+        }
+
+        if(newPassword.length > 8){
+          messageToUser('Password is valid');
+        } else {
+          messageToUser('Password is invalid');
+        }
+
+      }
+
+      var user = {
+        username: 'thebrockellis',
+        password: 'password123'
+      }
+
+      var givenUsername = prompt('Username:');
+      var givenPassword = prompt('Password:');
+
+      if(givenUsername == user.username && givenPassword == user.password){
+        changePassword();
+      } else {
+        messageToUser('Credentials do not match');
+      }
+
     </script>
   </head>
   <body>
