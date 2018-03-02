@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Review Array Methods</title>
+    <script>
+    /*
+    create an array of 3 things
+      - `.push()` a new item into that array
+      - `console.log()` that array
+      - `.pop()` on the array
+      - `console.log()` the array again
+      - use `indexOf()` to find where a specific item is in the array
+    */
+
+    var types_o_pizza = ['hamburger', 'breakfast', 'taco'];
+
+    var hybrid_type = {
+      pepperoni: false,
+      cheese: true,
+      greenPeppers: true
+    }
+
+    types_o_pizza.push('supreme');
+    console.log(types_o_pizza);
+
+    types_o_pizza.push(hybrid_type);
+    console.log(types_o_pizza);
+
+    types_o_pizza.pop();
+    console.log(types_o_pizza);
+
+    // find me some breakfast
+    console.log(  types_o_pizza.indexOf('pineapple')  );
+
+    if (types_o_pizza.indexOf('cheese') == -1) {
+      types_o_pizza.push('cheese');
+    }
+    console.log(types_o_pizza);
+
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

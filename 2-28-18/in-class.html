@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>New Stuff: parseInt, confirm, this</title>
+  </head>
+  <script>
+    /*
+    // NEW STUFF
+    - confirm()
+      - https://www.w3schools.com/jsref/met_win_confirm.asp
+    - 'this' keyword
+      - "When a function is called as a method of an object, its this is set to the object the method is called on."
+      - https://www.youtube.com/watch?v=yVdU2coJ1VQ
+    - .push()
+      - https://www.w3schools.com/js/js_array_methods.asp
+    - parseInt()
+      - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt
+    */
+
+    // var eat_pizza = confirm('Would you like to eat pizza?');
+    // if(eat_pizza == true){
+    //   console.log("Consume mass quantities of pizza");
+    // }else{
+    //   console.log('must not like pizza');
+    // }
+    //
+    // var pieces_of_pizza = 8;
+    //
+    // var pieces_requested = prompt('How many pieces would you like?');
+    // console.log(pieces_requested);
+    //
+    // console.log('There are ' + pieces_of_pizza - pieces_requested + 'left');
+
+    // pieces_requested = parseInt(pieces_requested);
+
+    /*
+      party object
+       - location:string
+       - guests: array[string]
+       - food:string
+       - orderFood: method(type_of_food)
+       - eatFood: method()
+    */
+
+    var party = {
+      location: 'My house',
+      guests: ['steve', 'stevie', 'steve-o', 'stephen'],
+      food: 'chips and salsa',
+      //add an array of acceptable foods here
+      acceptable_food: ['nachos', 'wings', 'chex mix', 'beer'],
+      orderFood: function(type_of_food){
+
+        // check to see if type_of_food is in the acceptable_food array first
+        if( this.acceptable_food.indexOf(type_of_food) == -1){
+          // we didn't find the type_of_food in the acceptable_food array
+          // can't order it if it's not acceptable
+          console.log(`Sorry, can't order ${type_of_food}.`);
+        }else{
+          console.log(`Awesome idea! Let's order some ${type_of_food}!`);
+          this.food = type_of_food;
+
+          var answer = confirm(`Would you like to eat ${type_of_food} now?`);
+          if(answer){
+            this.eatFood();
+          }
+        }
+
+      },
+      eatFood: function(){
+        if(this.food){
+          console.log(`These ${this.food} are really good!`);
+          this.food = '';
+        }else{
+          console.log('No food here! Must order some! But not from Godfathers...');
+
+          // ask the user if they'd like to order food (confirm)
+          // store their answer in a variable
+          var answer = confirm('Would you like to order food?');
+
+          // if they answered 'yes', we need to ask them what kind of food (prompt)
+          // and store that answer in a variable
+          if(answer == true){
+            var food_to_order = prompt('What would you like to order?');
+            this.orderFood(food_to_order);
+          }
+          // then call the this.orderFood(answer) method with their answer
+        }
+
+      }
+    }
+
+    party.eatFood();
+
+  </script>
+  <body>
+
+  </body>
+</html>

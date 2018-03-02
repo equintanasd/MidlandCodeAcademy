@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Baby - Review of JS Objects and Methods</title>
+
+    <script>
+      /*
+      * Baby object
+      *  - create a baby object
+          - name:string
+          - weight:number
+          - dirtyDiaper:boolean
+          - isHungry:boolean
+          - changeDiaper:function()
+            - check to see if the diaper is dirty first
+            - if it is, change it AND set isHungry = true
+            - if diaper is not dirty, say so
+          - feedBaby:function()
+            - check to see if baby is hungry
+            - if it is, feed it AND set dirtyDiaper = true
+
+          - add 'isAwake' property
+          - add putToBed() Method
+            - calls feedBaby(), changeDiaper() and then sets isAwake = false
+      */
+
+      var baby = {
+        name: 'Carson',
+        weight: 9,
+        dirtyDiaper: true,
+        isHungry: true,
+        isAwake: true,
+        changeDiaper: function(){
+          if(this.dirtyDiaper){
+            this.dirtyDiaper = false;
+            this.isHungry = true;
+          } else {
+            console.log(`Baby isn't dirty`);
+          }
+        },
+        feedBaby: function(){
+          if(this.isHungry){
+            this.isHungry = false;
+            this.dirtyDiaper = true;
+          } else {
+            console.log(`Baby isn't hungry`);
+          }
+        },
+        putToBed(){
+          this.feedBaby();
+          this.changeDiaper();
+          this.isAwake = false;
+        }
+      }
+
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>
